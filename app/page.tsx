@@ -1,69 +1,43 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client";
+
+import { useState } from "react";
+import Flower, { type FlowerColor } from "./components/flower";
+
+const flowers: FlowerColor[] = ["yellow", "gold", "cream", "yellow", "gold", "cream", "yellow"];
 
 export default function Home() {
+  const [selectedFlower, setSelectedFlower] = useState<number | null>(null);
+  const [showMessage, setShowMessage] = useState(false);
+
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>
-            To get started, edit the{" "}
-            <code className={styles.code}>page.tsx</code> file.
-          </h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <main>
+      <h1>🌻 Flores Amarillas 🌻</h1>
+      <p>Una pequeña sorpresa hecha con Next.js 💛</p>
+      <div className="garden">
+        {flowers.map((color, index) => (
+          <Flower
+            key={`${color}-${index}`}
+            color={color}
+            isActive={selectedFlower === index}
+            onClick={() => setSelectedFlower(index)}
+          />
+        ))}
+      </div>
+      <button className="surprise-button" type="button" onClick={() => setShowMessage((visible) => !visible)}>
+        {showMessage ? "Ocultar sorpresa" : "Mostrar sorpresa"} <span aria-hidden="true">✦</span>
+      </button>
+      {showMessage && (
+        <section className="surprise-message" role="status" aria-live="polite">
+          <span className="surprise-message__eyebrow">Un mensaje para ti</span>
+          <strong>Que nunca te falten motivos para sonreír. 💛</strong>
+          <span>Esta pequeña flor amarilla lleva un deseo especial.</span>
+        </section>
+      )}
+      {selectedFlower !== null && (
+        <p className="flower-hint" role="status">
+          Elegiste la flor {selectedFlower + 1}. ¡Brilla diferente!
+        </p>
+      )}
+    </main>
   );
 }
