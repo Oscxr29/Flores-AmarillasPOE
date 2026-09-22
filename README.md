@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Flores Amarillas
 
-## Getting Started
+Una pequeña sorpresa interactiva creada con Next.js y React. La pantalla presenta un jardín de siete flores amarillas que el usuario puede seleccionar individualmente para resaltarlas. También incluye un botón para mostrar u ocultar un mensaje especial.
 
-First, run the development server:
+## Lo realizado
+
+- Diseño visual inspirado en un jardín nocturno, con flores en tonos amarillo, dorado y crema.
+- Animaciones de entrada, crecimiento, selección y estados de interacción.
+- Mensaje sorpresa con actualización dinámica del contenido.
+- Diseño adaptable para escritorio y dispositivos móviles.
+- Soporte para reducir las animaciones cuando el usuario lo solicita desde su sistema.
+- Textos y metadatos configurados en español.
+
+## Tecnologías
+
+- Next.js 16
+- React 19
+- TypeScript
+- CSS
+
+## Ejecutar el proyecto
+
+Instala las dependencias y ejecuta el servidor de desarrollo:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Después, abre [http://localhost:3001](http://localhost:3001) en el navegador.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Si el puerto `3000` está ocupado, Next.js utilizará automáticamente otro puerto disponible, como `3001`.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Otros comandos disponibles:
 
-## Learn More
+```bash
+npm run lint
+npm run build
+npm run start
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Capturas del proyecto
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Sí: crea una carpeta llamada `capturas` dentro de `public` y guarda allí las dos imágenes del proyecto:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```text
+public/
+└── capturas/
+	├── vista-principal.png
+	└── mensaje-sorpresa.png
+```
 
-## Deploy on Vercel
+Puedes usar estos nombres para mantener la sección organizada:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `vista-principal.png`
+- `mensaje-sorpresa.png`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+![Vista principal](./public/capturas/vista-principal.png)
+
+![Mensaje sorpresa](./public/capturas/mensaje-sorpresa.png)
